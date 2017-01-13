@@ -38,6 +38,4 @@ public class SiteServiceImpl implements SiteService {
     public void deleteSite(Site site) {
         siteDao.deleteSite(site);
     }
-
-
 }

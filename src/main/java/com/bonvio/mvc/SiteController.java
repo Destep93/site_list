@@ -20,7 +20,6 @@ public class SiteController {
         return "index";
     }
 
-
     @RequestMapping(value = "get" ,method = RequestMethod.GET)
     @ResponseBody
     public Object getSites() {
