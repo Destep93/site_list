@@ -6,15 +6,12 @@
 package com.bonvio.dao;
 
 import com.bonvio.model.People;
+import com.bonvio.model.Site;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
-/**
- *
- * @author dmitriy
- */
 @Repository
 public class PeopleDaoImpl implements PeopleDao{
 
@@ -38,7 +35,21 @@ public class PeopleDaoImpl implements PeopleDao{
 
     @Override
     public void delete(People people) {
-         entityManager.remove(entityManager.getReference(People.class,people.getId()));
+         entityManager.remove(entityManager.getReference(People.class,people.getPeople_id()));
+    }
+
+    @Override
+    public People getById(long id) {
+        return entityManager.find(People.class, id);
+    }
+
+    @Override
+    public List<Site> getSite(long id) {
+        String getSiteById = "SELECT s FROM Site s where s.people_id = :people_id";
+        List<Site> sites = entityManager.createQuery(getSiteById, Site.class)
+                .setParameter("people_id", id).getResultList();
+
+        return sites;
     }
     
 }

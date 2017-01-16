@@ -8,16 +8,22 @@
             <td>Описание</td>
             <td>Название БД</td>
             <td>Сервер</td>
-            <td></td>
+            <td>id Владельца</td>
+            <td>Удалить?</td>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="s in sites ">
             <td>{{s.id}}</td>
             <td>{{s.name}}</td>
-            <td><a href="http://{{s.description}}" target="_blank">{{s.description}} </a></td>
+            <td>
+                <!--<a href="http://{{s.description}}" target="_blank">-->
+                    {{s.description}} 
+<!--                </a>-->
+            </td>
             <td>{{s.dbname}}</td>
             <td>{{s.server}}</td>
+            <td>{{s.people_id}}</td>
             <td>
                 <button class="btn btn-danger btn-xs glyphicon glyphicon-remove"
                         data-ng-click="delSite($index)"></button>
@@ -44,6 +50,10 @@
             <tr>
                 <td>Сервер:</td>
                 <td><input class="form-control" type="text" data-ng-model="addsite.server"/></td>
+            </tr>
+            <tr>
+                <td>id Владельца:</td>
+                <td><input class="form-control" type="text" data-ng-model="addsite.people_id"/></td>
             </tr>
         </table>
         <br>

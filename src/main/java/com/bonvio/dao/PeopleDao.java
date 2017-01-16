@@ -6,6 +6,7 @@
 package com.bonvio.dao;
 
 import com.bonvio.model.People;
+import com.bonvio.model.Site;
 import java.util.List;
 
 /**
@@ -14,6 +15,10 @@ import java.util.List;
  */
 public interface PeopleDao {
     List<People> get();
+    
+    List<Site> getSite( long id);
+    
+    People getById(long id);
 
     void add(People site);
 

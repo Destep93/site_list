@@ -5,7 +5,9 @@
  */
 package com.bonvio.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -25,29 +27,41 @@ public class People {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private long people_id;
     private String name;
     private String address;
     private int age;
+    
+    @JsonIgnore//?
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "people")
+    private List<Site> site;
 
+    public List<Site> getSite() {
+        return site;
+    }
+
+    public void setSite(List<Site> site) {
+        this.site = site;
+    }
     
     @Override
     public String toString() {
         return "People{" +
-                "id=" + id +
+                "id=" + people_id +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", age='" + age +  
                 '}';
     }
-    public long getId() {
-        return id;
+
+    public long getPeople_id() {
+        return people_id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setPeople_id(long people_id) {
+        this.people_id = people_id;
     }
-
+    
     public String getName() {
         return name;
     }

@@ -1,21 +1,53 @@
 <div>
-    <button type="button" class="btn btn-success" data-ng-click="getEntity()"> Вывести в консоль</button>  
-<!--    <div>
+    <br>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <td>id</td>
+            <td>Имя</td>
+            <td>Адрес</td>
+            <td>Возраст БД</td>
+            <td>Удалить?</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="p in peoples ">
+            <td>
+                <a data-ng-click="getSite($index)" >
+                    {{p.people_id}}
+                </a>
+            </td>
+            <td>{{p.name}}</td>
+            <td>{{p.address}}</td>
+            <td>{{p.age}}</td>
+            <td>
+                <button class="btn btn-danger btn-xs glyphicon glyphicon-remove"
+                        data-ng-click="delPeople($index)"></button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br><br>
+
+    <div>
         <table class="table">
             <tr>
-                <td>Название:</td>
-                <td><input class="form-control" type="text" data-ng-model="people.name"/></td>
+                <td>Имя</td>
+                <td><input class="form-control" type="text" data-ng-model="addPeople.name"/></td>
             </tr>
             <tr>
                 <td>Адрес</td>
-                <td><input class="form-control" type="text" data-ng-model="people.address"/></td>
+                <td><input class="form-control" type="text" data-ng-model="addPeople.address"/></td>
             </tr>
             <tr>
                 <td>Возраст</td>
-                <td><input class="form-control" type="text" data-ng-model="people.age"/></td>
+                <td><input class="form-control" type="text" data-ng-model="addPeople.age"/></td>
             </tr>
         </table>
-        <br>-->
-        <button type="button" class="btn btn-success" data-ng-click="createNewEntity()"> Сохранить</button>
-<!--    </div>-->
+        <br>
+        <button type="button" class="btn btn-success" data-ng-click="savePeople()"> Сохранить</button>
+    </div>
 </div>
+
+
+

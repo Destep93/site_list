@@ -1,6 +1,7 @@
 package com.bonvio.mvc;
 
 import com.bonvio.model.Site;
+import com.bonvio.service.PeopleService;
 import com.bonvio.service.SiteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,9 @@ public class SiteController {
 
     @Autowired
     SiteService siteService;
+    
+    @Autowired
+    PeopleService peopleService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String  getSite() {
@@ -35,6 +39,7 @@ public class SiteController {
     @RequestMapping(method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.CREATED)
     public void printWelcome(@RequestBody Site site) {
+        site.setPeople(peopleService.getById(site.getPeople_id()));
         siteService.addSite(site);
     }
 

@@ -1,6 +1,7 @@
 package com.bonvio.service;
 
 import com.bonvio.model.People;
+import com.bonvio.model.Site;
 import java.util.List;
 
 /**
@@ -9,10 +10,14 @@ import java.util.List;
  */
 public interface PeopleService {
     List<People> get();
+    
+    List<Site> getSite( long id);
+    
+    People getById(long id);
 
-    void add(People people);
+    void add(People site);
 
-    void update(People people);
+    void update(People site);
 
-    void delete(People people);
+    void delete(People site);
 }

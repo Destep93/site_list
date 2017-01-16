@@ -7,6 +7,7 @@ package com.bonvio.service;
 
 import com.bonvio.dao.PeopleDao;
 import com.bonvio.model.People;
+import com.bonvio.model.Site;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,4 +46,16 @@ public class PeopleServiceImpl implements PeopleService{
     public void delete(People people) {
         peopleDao.delete(people);
     }
+
+    @Override
+    public People getById(long id) {
+        return peopleDao.getById(id);
+    }
+
+    @Override
+    public List<Site> getSite(long id) {
+        return peopleDao.getSite(id);   
+    }
+
+    
 }

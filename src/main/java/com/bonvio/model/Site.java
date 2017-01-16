@@ -1,5 +1,6 @@
 package com.bonvio.model;
-
+ 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -8,20 +9,45 @@ import javax.persistence.*;
 @Table (name = "site")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Site {
-
+    
     public Site (){
+        
     }
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private long id;
     private String name;
     private String description;
     private String secret;
     private String dbname;
     private String server;
     private boolean checked;
+    
+    @Column(nullable = false, insertable = false, updatable = false)
+    private long people_id;
+    
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "people_id", referencedColumnName="people_id" )
+    private People people;
 
+    public long getPeople_id() {
+        return people_id;
+    }
+
+    public void setPeople_id(long people_id) {
+        this.people_id = people_id;
+    }
+    
+    public People getPeople() {
+        return people;
+    }
+
+    public void setPeople(People people) {
+        this.people = people;
+    }
+ 
     @Override
     public String toString() {
         return "Site{" +
@@ -36,7 +62,7 @@ public class Site {
     }
 
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
