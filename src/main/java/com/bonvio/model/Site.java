@@ -1,13 +1,12 @@
 package com.bonvio.model;
  
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
 @Entity
 @Table (name = "site")
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties({"people"})
 public class Site {
     
     public Site (){  
@@ -26,8 +25,7 @@ public class Site {
     @Column(nullable = false, insertable = false, updatable = false)
     private long people_id;
     
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "people_id", referencedColumnName="people_id" )
     private People people;
 

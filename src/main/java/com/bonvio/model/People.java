@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.bonvio.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
 
@@ -13,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table (name = "people")
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties({"site"})
 public class People {
 
     public People() {
@@ -32,7 +26,7 @@ public class People {
     private String address;
     private int age;
     
-    @JsonIgnore//?
+     
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "people")
     private List<Site> site;
 

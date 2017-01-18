@@ -28,6 +28,7 @@ public class SiteController {
     @RequestMapping(value = "get" ,method = RequestMethod.GET)
     @ResponseBody
     public Object getSites() {
+        List<Site> s = siteService.getSites();
         return siteService.getSites();
     }
 
