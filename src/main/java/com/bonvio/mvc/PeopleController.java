@@ -2,16 +2,17 @@ package com.bonvio.mvc;
 
 import com.bonvio.model.People;
 import com.bonvio.service.PeopleService;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-
+/**
+ *
+ * @author dmitriy
+ */
 @Controller
-@RequestMapping(value = "service")
-public class ServiceController {
+@RequestMapping(value = "people")
+public class PeopleController {
     
     @Autowired
     PeopleService peopleService;
@@ -25,7 +26,7 @@ public class ServiceController {
     @RequestMapping(value = "getSites/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Object getSites(@PathVariable ("id") long people_id) {
-        return peopleService.getSite(people_id);
+        return peopleService.getSitesByPeopleId(people_id);
     }
 
     @RequestMapping(method = RequestMethod.PUT)
@@ -41,5 +42,4 @@ public class ServiceController {
         people.setPeople_id(people_id);
         peopleService.delete(people);
     }
-
 }

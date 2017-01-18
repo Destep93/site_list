@@ -16,7 +16,7 @@ import java.util.List;
 public interface PeopleDao {
     List<People> get();
     
-    List<Site> getSite( long id);
+    List<Site> getSitesByPeopleId( long id);
     
     People getById(long id);
 

@@ -6,7 +6,6 @@ app.controller('SiteController', function ($scope, $http, $location, $rootScope)
     $rootScope.param = $location.path();
     $scope.sites = [];
 
-
     $http.get('site/get').then(function (data) {
         $scope.sites = data.data;
     });

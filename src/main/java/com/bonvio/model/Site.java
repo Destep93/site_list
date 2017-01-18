@@ -10,8 +10,7 @@ import javax.persistence.*;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Site {
     
-    public Site (){
-        
+    public Site (){  
     }
     
     @Id
@@ -28,7 +27,7 @@ public class Site {
     private long people_id;
     
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "people_id", referencedColumnName="people_id" )
     private People people;
 

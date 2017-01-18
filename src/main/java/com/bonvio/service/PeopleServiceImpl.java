@@ -53,8 +53,8 @@ public class PeopleServiceImpl implements PeopleService{
     }
 
     @Override
-    public List<Site> getSite(long id) {
-        return peopleDao.getSite(id);   
+    public List<Site> getSitesByPeopleId(long id) {
+        return peopleDao.getSitesByPeopleId(id);   
     }
 
     

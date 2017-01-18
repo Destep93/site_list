@@ -9,9 +9,9 @@ app.config(function ($httpProvider, $routeProvider, $locationProvider) {
             controller: 'SiteController',
             templateUrl: 'res/tpl/site.html'
         })
-        .when('/service', {
-            controller: 'ServiceController',
-            templateUrl: 'res/tpl/service.html'
+        .when('/people', {
+            controller: 'PeopleController',
+            templateUrl: 'res/tpl/people.html'
         });
 
    /* $httpProvider.defaults.withCredentials = true;*/
@@ -20,6 +20,5 @@ app.config(function ($httpProvider, $routeProvider, $locationProvider) {
 
 
 app.controller('MainController', function ($scope, $http, $location, $rootScope) {
-    $rootScope.param = $location.path();
-
+//    $rootScope.param = $location.path();
 });

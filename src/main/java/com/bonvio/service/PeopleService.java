@@ -11,7 +11,7 @@ import java.util.List;
 public interface PeopleService {
     List<People> get();
     
-    List<Site> getSite( long id);
+    List<Site> getSitesByPeopleId( long id);
     
     People getById(long id);
 

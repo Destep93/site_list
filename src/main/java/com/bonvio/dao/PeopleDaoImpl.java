@@ -44,7 +44,7 @@ public class PeopleDaoImpl implements PeopleDao{
     }
 
     @Override
-    public List<Site> getSite(long id) {
+    public List<Site> getSitesByPeopleId(long id) {
         String getSiteById = "SELECT s FROM Site s where s.people_id = :people_id";
         List<Site> sites = entityManager.createQuery(getSiteById, Site.class)
                 .setParameter("people_id", id).getResultList();
