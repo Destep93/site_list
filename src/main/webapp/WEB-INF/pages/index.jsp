@@ -11,7 +11,7 @@
 <body class="container" ng-controller="MainController">
 
 <ul class="nav nav-pills">
-	<li role="presentation"  ng-class="{'active': param == '/people'}"><a href="#/people">Что нибудь сделать</a></li>
+	<li role="presentation"  ng-class="{'active': param == '/people'}"><a href="#/people">Cписок людей</a></li>
 	<li role="presentation"  ng-class="{'active': param == '/site'}"><a href="#/site">Список сайтов</a></li>
 </ul>
 
